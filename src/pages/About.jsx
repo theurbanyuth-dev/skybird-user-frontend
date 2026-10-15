@@ -16,14 +16,14 @@ import {
 import { fetchSiteContent } from "../api/site";
 
 const defaultStats = [
-  { value: "5+ Years", label: "Dedicated E-Commerce Experience", icon: Award },
-  { value: "50+", label: "Specialized Marketplace Courses", icon: BookOpen },
+  { value: "Since 2019", label: "E-Commerce Journey", icon: Award },
+  { value: "500+", label: "Clients Worked With", icon: BookOpen },
   {
-    value: "₹15 Cr+",
-    label: "Verified Seller Revenue Boosted",
+    value: "₹120 Cr+",
+    label: "Revenue Generated Through Brand-Building Work",
     icon: TrendingUp,
   },
-  { value: "10,000+", label: "Happy Sellers", icon: Users },
+  { value: "400+", label: "Brands Helped Build", icon: Users },
 ];
 
 const defaultServices = [
@@ -31,103 +31,105 @@ const defaultServices = [
     icon: Store,
     title: "Account Setup",
     description:
-      "Get guidance with marketplace account setup and the essential steps to start selling online.",
+      "Understand the foundations of launching on online marketplaces, from account readiness to your first steps as a seller.",
   },
   {
     icon: ShoppingBag,
     title: "Product Cataloguing",
     description:
-      "Learn how to prepare and manage product listings for online marketplaces.",
+      "Learn how product selection, listing quality, catalogue structure, and optimization shape marketplace performance.",
   },
   {
     icon: Megaphone,
     title: "Ads Management",
     description:
-      "Understand marketplace advertising and learn practical ways to manage your campaigns.",
+      "Explore marketplace advertising, campaign fundamentals, and the decisions that help sellers manage their budgets thoughtfully.",
   },
   {
     icon: BookOpen,
     title: "Practical Training",
     description:
-      "Learn through detailed, step-by-step video courses built around real store management.",
+      "Build practical skills through structured lessons informed by real marketplace work, research, and client experience.",
   },
 ];
 
 const defaultPromises = [
   {
-    title: "100% Practical Learning",
+    title: "Practical, Real-World Learning",
     description:
-      "Our courses focus on actionable steps drawn from real store management data, not just theory.",
+      "Learn through practical insights, real business challenges, and lessons drawn from hands-on e-commerce experience.",
     icon: CheckCircle,
   },
   {
-    title: "Safe & Secure Video Learning",
-    description: "Access course videos through our secure streaming facility.",
+    title: "A Clear Learning Roadmap",
+    description:
+      "Follow structured lessons designed to make complex marketplace concepts easier to understand and apply.",
     icon: ShieldCheck,
   },
   {
-    title: "Support When You Need It",
-    description: "Our support team is available to help answer your queries.",
+    title: "Learn From Experience",
+    description:
+      "Understand common seller challenges and make more informed decisions as you build your e-commerce foundation.",
     icon: Headset,
   },
 ];
 
 const defaultAbout = {
   hero: {
-    badge: "About Sky Birds Solution",
-    title: "Empowering Sellers.",
-    highlight: "Growing Businesses.",
+    badge: "My E-Commerce Journey",
+    title: "From Learning E-Commerce",
+    highlight: "to Helping Build 400+ Brands",
     description:
-      "Sky Birds Solution is a growth-oriented E-Commerce agency in India, committed to empowering online sellers. From account setup and cataloguing to ads management and practical training, our in-house experts bring essential services together under one roof.",
-    primaryCta: "Explore Our Courses",
-    secondaryCta: "Talk to Our Team",
+      "My journey started in 2019 as a digital marketing intern earning ₹1,500 a month. Since then, I have experienced e-commerce as a seller, an employee, and an agency owner—learning from setbacks, working with 500+ clients, and contributing to work associated with over ₹120 crore in revenue.",
+    primaryCta: "Explore the Course",
+    secondaryCta: "Get in Touch",
   },
   who: {
-    badge: "Who We Are",
-    title: "Built by Sellers, For Sellers",
+    badge: "The Journey",
+    title: "A Setback Became a Turning Point",
     description:
-      "Our website is built around the needs of online sellers. We aim to help local manufacturers, retail owners, and enthusiastic entrepreneurs across India understand marketplace selling and build sustainable businesses.",
+      "In 2022, I started selling on Amazon, trusted the wrong people, lost ₹18,000, and stepped away from e-commerce for almost a year. In 2024, I returned with a different mindset, joined an e-commerce agency, worked with 500+ clients, researched international marketplaces, and learned how sellers navigate different business models. That experience shaped the practical approach I bring to this course.",
   },
   vision: {
-    badge: "Our Vision",
-    title: "Sustainable Online Growth",
+    badge: "The Lesson",
+    title: "Learn From Real Experience",
     description:
-      "To empower local manufacturers, retail owners, and entrepreneurs across India to build sustainable and highly profitable businesses through online marketplaces.",
+      "My own journey taught me that progress takes more than enthusiasm. Sellers need reliable information, practical understanding, and the confidence to evaluate opportunities before making important decisions.",
   },
   mission: {
-    badge: "Our Mission",
-    title: "Making E-Commerce Simpler",
+    badge: "Why This Course",
+    title: "Direction, Not Just Information",
     description:
-      "To eliminate confusion and help sellers overcome the challenges and costs of online selling through high-quality, up-to-date training, hands-on onboarding, and reliable management.",
+      "I created this course to share the practical knowledge, strategies, and lessons I have gained over the years—so aspiring sellers can avoid common mistakes, make more informed decisions, and approach e-commerce with greater clarity and confidence.",
   },
   services: {
-    badge: "What We Do",
-    title: "Everything You Need to Grow Online",
+    badge: "What You’ll Learn",
+    title: "Understand the Real Work Behind E-Commerce",
     description:
-      "Practical services and learning resources designed to help sellers navigate the online marketplace journey.",
+      "Build a foundation in the decisions and day-to-day activities involved in selling online, informed by marketplace exposure and real seller challenges.",
   },
   platforms: {
-    badge: "Marketplace Learning",
-    title: "Learn. Launch. Grow.",
+    badge: "Marketplace Experience",
+    title: "Explore. Understand. Implement.",
     description:
-      "We provide detailed, step-by-step practical training and onboarding management for sellers on these marketplaces.",
+      "My experience includes researching international marketplaces and learning how e-commerce works across different platforms, countries, and business models.",
     items: ["Amazon India", "Flipkart", "Meesho"],
   },
   impact: {
-    badge: "Our Impact",
-    title: "Growing Together,",
-    highlight: "One Seller at a Time",
+    badge: "Experience & Impact",
+    title: "Lessons Learned Through Experience,",
+    highlight: "Shared to Help You Move Forward",
     description:
-      "Our journey reflects our commitment to practical marketplace education, seller support, and business growth.",
-    empoweredValue: "1,00,000+",
-    empoweredLabel: "People Empowered",
+      "My work across seller, agency, and business roles has contributed to building more than 400 brands and over ₹120 crore in revenue. These experiences reinforced the value of practical execution—not just theory.",
+    empoweredValue: "400+",
+    empoweredLabel: "Brands Helped Build",
   },
   cta: {
-    title: "Ready to Grow Your Online Business?",
+    title: "Your E-Commerce Journey Starts Here",
     description:
-      "Explore practical marketplace courses and take the next step in your e-commerce journey with Sky Birds Solution.",
-    primaryLabel: "Browse Courses",
-    secondaryLabel: "Contact Us",
+      "Whether you are exploring e-commerce for the first time or strengthening your business foundation, learn the practical lessons with a clearer roadmap and greater confidence.",
+    primaryLabel: "Start Learning",
+    secondaryLabel: "Get in Touch",
   },
 };
 
@@ -193,21 +195,23 @@ export default function About() {
           <div className="grid items-center gap-8 p-2 sm:gap-10 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:p-12">
             <div className="order-2 min-w-0 lg:order-1">
               <span className="inline-flex items-center rounded-full border border-leaf/20 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-forest">
-                Meet Your Trainer
+                My Story
               </span>
               <h2
                 id="about-trainer-heading"
                 className="mt-4 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
               >
-                
-                <span className="mt-1 block text-forest">Sambhav Sir</span>
+                <span className="mt-1 block text-forest">
+                  From a Beginner to Building Brands
+                </span>
               </h2>
               <p className="mt-5 text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
-                Learn e-commerce with clear guidance and a practical,
-                step-by-step approach. Shambhav Sir helps learners understand
-                the essentials of online marketplace selling—from product
-                listing and catalogue management to marketplace operations and
-                advertising fundamentals.
+                In 2019, I began as a digital marketing intern, working 12-hour
+                days for ₹1,500 a month. In 2022, my first attempt at selling on
+                Amazon ended in a ₹18,000 loss and a difficult pause. I started
+                again in 2024, bringing those lessons into agency work,
+                researching marketplaces, and helping solve real challenges for
+                sellers.
               </p>
               {/* <p className="mt-4 text-sm leading-7 text-gray-600 sm:text-base sm:leading-8">
                 The focus is on making complex processes easier to understand,
@@ -221,10 +225,11 @@ export default function About() {
                   </span>
                   <div>
                     <h3 className="text-sm font-bold text-gray-900">
-                      Practical Guidance
+                      Learn From My Journey
                     </h3>
                     <p className="mt-1 text-xs leading-5 text-gray-600">
-                      Understand each step with simple, actionable explanations.
+                      Learn from the mistakes, research, and experience that
+                      shaped my approach.
                     </p>
                   </div>
                 </div>
@@ -234,11 +239,11 @@ export default function About() {
                   </span>
                   <div>
                     <h3 className="text-sm font-bold text-gray-900">
-                      Seller-Focused Learning
+                      Built Around Real Challenges
                     </h3>
                     <p className="mt-1 text-xs leading-5 text-gray-600">
-                      Build skills for marketplace work and online business
-                      growth.
+                      Understand the decisions sellers face while building an
+                      online business.
                     </p>
                   </div>
                 </div>
@@ -248,7 +253,7 @@ export default function About() {
                   to="/courses"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-leaf px-6 py-3.5 text-sm font-bold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-forest sm:w-auto"
                 >
-                  Learn with Our Courses <ArrowRight className="h-4 w-4" />
+                  Explore the Course <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -259,7 +264,7 @@ export default function About() {
                 <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white p-2 shadow-xl">
                   <img
                     src="/assets/owner1.jpeg"
-                    alt="Shambhav Sir, Sky Birds trainer"
+                    alt="Sambhav Sir, e-commerce course trainer"
                     className="aspect-[4/5] w-full rounded-[1.25rem] object-cover object-center"
                     loading="lazy"
                     onError={(event) => {
@@ -272,13 +277,13 @@ export default function About() {
                     <span className="grid h-28 w-28 place-items-center rounded-full border border-white/30 bg-white/10 text-4xl font-extrabold">
                       SS
                     </span>
-                    <span className="mt-5 text-xl font-bold">Shambhav Sir</span>
+                    <span className="mt-5 text-xl font-bold">Sambhav Sir</span>
                     <span className="mt-1 text-sm text-white/75">
                       E-Commerce Trainer
                     </span>
                   </div>
                   <div className="absolute inset-x-2 bottom-2 rounded-b-[1.2rem] bg-gradient-to-t from-gray-950/90 via-gray-950/45 to-transparent px-5 pb-5 pt-12 text-white">
-                    <p className="text-lg font-bold">Shambhav Sir</p>
+                    <p className="text-lg font-bold">Sambhav Sir</p>
                     <p className="mt-1 text-xs font-medium text-white/80">
                       E-Commerce Trainer
                     </p>
@@ -354,8 +359,10 @@ export default function About() {
                     Our Approach
                   </span>
                   <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
-                    Real Experience.
-                    <span className="block text-leaf">Practical Results.</span>
+                    Real Lessons.
+                    <span className="block text-leaf">
+                      Practical Direction.
+                    </span>
                   </h2>
                 </div>
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white/10">
@@ -363,9 +370,9 @@ export default function About() {
                 </div>
               </div>
               <p className="mt-4 text-sm leading-7 text-white/75">
-                Every course and service is built around real store management
-                experience, helping sellers understand the practical side of
-                online business.
+                This course brings together practical insights from seller
+                experience, agency work, marketplace research, and challenges
+                encountered while working with hundreds of clients.
               </p>
               <div className="mt-7 space-y-3">
                 {promises.map((item) => {
@@ -478,30 +485,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-forest/10 bg-gray-50 px-6 py-10 sm:px-10 sm:py-12">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-leaf">
-            {about.platforms.badge}
-          </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            {about.platforms.title}
-          </h2>
-          <p className="mt-4 text-sm leading-7 text-gray-600 sm:text-base">
-            {about.platforms.description}
-          </p>
-        </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {(about.platforms.items || []).map((platform) => (
-            <div
-              key={platform}
-              className="flex items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-white px-5 py-6 shadow-sm"
-            >
-              <CheckCircle className="h-5 w-5 text-leaf" />
-              <span className="font-bold text-gray-800">{platform}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+       
 
       <section>
         <div className="overflow-hidden rounded-[2rem] bg-forest p-7 text-white shadow-xl sm:p-10 lg:p-12">

@@ -270,10 +270,14 @@ export default function Home() {
   const dynamicFaqs =
     Array.isArray(home.faqs) && home.faqs.length ? home.faqs : faqs;
 
-  const logoTargetX = typeof window !== "undefined"
-    ? Math.max(16, (window.innerWidth - 1152) / 2 + 20) + 18 - window.innerWidth / 2
-    : -140;
-  const logoTargetY = typeof window !== "undefined" ? 42 - window.innerHeight / 2 : -300;
+  const logoTargetX =
+    typeof window !== "undefined"
+      ? Math.max(16, (window.innerWidth - 1152) / 2 + 20) +
+        18 -
+        window.innerWidth / 2
+      : -140;
+  const logoTargetY =
+    typeof window !== "undefined" ? 42 - window.innerHeight / 2 : -300;
 
   return (
     <div className="overflow-hidden bg-white text-ink">
@@ -282,7 +286,11 @@ export default function Home() {
           className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf8] via-white to-[#e8f3e7]"
           initial={{ opacity: 1 }}
           animate={{ opacity: loading ? 1 : 0 }}
-          transition={{ duration: 0.65, delay: loading ? 0 : 0.95, ease: "easeInOut" }}
+          transition={{
+            duration: 0.65,
+            delay: loading ? 0 : 0.95,
+            ease: "easeInOut",
+          }}
           style={{ pointerEvents: loading ? "auto" : "none" }}
           aria-label="Loading Sky Birds"
           role="status"
@@ -292,31 +300,51 @@ export default function Home() {
           <motion.div
             className="relative flex flex-col items-center gap-4"
             initial={{ opacity: 0, scale: 0.78, y: 12 }}
-            animate={loading
-              ? { opacity: 1, scale: 1, x: 0, y: 0 }
-              : { opacity: 1, scale: 0.72, x: logoTargetX, y: logoTargetY }
+            animate={
+              loading
+                ? { opacity: 1, scale: 1, x: 0, y: 0 }
+                : { opacity: 1, scale: 0.72, x: logoTargetX, y: logoTargetY }
             }
-            transition={{ duration: loading ? 0.65 : 0.95, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: loading ? 0.65 : 0.95,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <motion.div
               className="grid h-20 w-20 place-items-center rounded-3xl border border-white/80 bg-black/90 p-3 shadow-xl shadow-forest/10 sm:h-24 sm:w-24"
               animate={{ rotate: loading ? [0, -4, 4, 0] : 0 }}
-              transition={{ duration: 1.6, repeat: loading ? Infinity : 0, ease: "easeInOut" }}
+              transition={{
+                duration: 1.6,
+                repeat: loading ? Infinity : 0,
+                ease: "easeInOut",
+              }}
             >
-              <img src="/assets/logo1.png" alt="Sky Birds" className="h-full w-full object-contain" />
+              <img
+                src="/assets/logo1.png"
+                alt="Sky Birds"
+                className="h-full w-full object-contain"
+              />
             </motion.div>
             <motion.div
               className="text-center"
               animate={{ opacity: loading ? 1 : 0 }}
               transition={{ duration: 0.2 }}
             >
-              <p className="text-2xl font-extrabold tracking-tight text-forest">Sky Birds</p>
-              <p className="mt-1 text-xs font-medium tracking-[0.18em] text-slate-500">YOUR LEARNING JOURNEY</p>
+              <p className="text-2xl font-extrabold tracking-tight text-forest">
+                Sky Birds
+              </p>
+              <p className="mt-1 text-xs font-medium tracking-[0.18em] text-slate-500">
+                YOUR LEARNING JOURNEY
+              </p>
               <div className="mx-auto mt-5 h-1 w-36 overflow-hidden rounded-full bg-forest/10">
                 <motion.div
                   className="h-full rounded-full bg-gradient-to-r from-leaf to-forest"
                   animate={{ x: ["-100%", "0%", "100%"] }}
-                  transition={{ duration: 1.25, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 1.25,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   style={{ width: "55%" }}
                 />
               </div>
@@ -406,7 +434,7 @@ export default function Home() {
                 to="/about"
                 className="inline-flex items-center gap-2 rounded-full border border-forest/20 bg-white/80 px-5 py-3 text-sm font-bold text-forest shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-leaf hover:bg-white"
               >
-                {hero.secondaryCta || "About Sky Birds"}
+                {"About Sky Birds Solution"}
               </Link>
             </motion.div>
 
@@ -972,7 +1000,7 @@ export default function Home() {
           className="overflow-hidden rounded-3xl"
         >
           <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+            src="/assets/img2.jpeg"
             onError={(e) => {
               e.currentTarget.src =
                 "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85";

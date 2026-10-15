@@ -45,19 +45,24 @@ export default function Navbar() {
         >
           <div className="flex min-h-[60px] items-center justify-between gap-4 px-5 sm:px-6">
             {/* Logo */}
+
             <Link
               to="/"
               onClick={() => setOpen(false)}
               className="flex shrink-0 items-center gap-2.5"
             >
-              <span className="grid h-9 w-9 place-items-center rounded-xl  text-sm font-extrabold text-white -mt-2">
+              <span className="-mt-2 grid h-9 w-9 shrink-0 place-items-center rounded-xl text-sm font-extrabold text-white">
                 <img src="/assets/logo1.png" alt="Sky Birds" />
               </span>
- 
+
+              <span className="flex flex-col leading-tight">
                 <span className="text-base font-bold tracking-tight text-white">
                   Sky Birds
                 </span>
-                
+                <span className="text-xs font-medium tracking-wider text-white/80 -mt-0.5">
+                  Solution
+                </span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -99,8 +104,8 @@ export default function Navbar() {
                     onClick={handleLogout}
                     className="
                       rounded-full border border-forest/20
-                      bg-white/40 px-4 py-2
-                      text-sm font-semibold text-forest
+                      bg-red-500 cursor-pointer px-4 py-2
+                      text-sm font-semibold text-white
                       transition hover:bg-white/80
                     "
                   >

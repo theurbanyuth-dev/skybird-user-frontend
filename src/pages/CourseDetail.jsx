@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
-import PaymentModal from "../components/PaymentModal"
-import { formatPrice } from "../data/courses"
-import { fetchCourseById } from "../api/courses"
-import { useUser } from "../context/UserContext"
+import { useEffect, useState } from "react";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import PaymentModal from "../components/PaymentModal";
+import { formatPrice } from "../data/courses";
+import { fetchCourseById } from "../api/courses";
+import { useUser } from "../context/UserContext";
 
 export default function CourseDetail() {
-  const { courseId } = useParams()
-  const navigate = useNavigate()
-  const { hasCourse, purchaseCourse, isAuthenticated } = useUser()
+  const { courseId } = useParams();
+  const navigate = useNavigate();
+  const { hasCourse, isAuthenticated, refreshPurchased } = useUser();
 
-  const [course, setCourse] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("")
-  const [payOpen, setPayOpen] = useState(false)
-  const [buyError, setBuyError] = useState("")
-  const [buying, setBuying] = useState(false)
+  const [course, setCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [payOpen, setPayOpen] = useState(false);
+  const [buyError, setBuyError] = useState("");
+  const [buying, setBuying] = useState(false);
 
   useEffect(() => {
-    let cancelled = false
+    let cancelled = false;
     async function load() {
-      setLoading(true)
-      setError("")
+      setLoading(true);
+      setError("");
       try {
-        const res = await fetchCourseById(courseId)
-        if (cancelled) return
-        if (res.success) setCourse(res.data)
-        else setError("Course not found")
+        const res = await fetchCourseById(courseId);
+        if (cancelled) return;
+        if (res.success) setCourse(res.data);
+        else setError("Course not found");
       } catch (err) {
         if (!cancelled) {
-          setError(err.response?.data?.message || "Failed to load course")
+          setError(err.response?.data?.message || "Failed to load course");
         }
       } finally {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) setLoading(false);
       }
     }
-    load()
+    load();
     return () => {
-      cancelled = true
-    }
-  }, [courseId])
+      cancelled = true;
+    };
+  }, [courseId]);
 
   if (loading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="h-10 w-10 animate-spin rounded-full border-2 border-leaf border-t-transparent" />
       </div>
-    )
+    );
   }
 
   if (error || !course) {
@@ -57,30 +57,36 @@ export default function CourseDetail() {
           ← Back to courses
         </Link>
       </div>
-    )
+    );
   }
 
-  const owned = hasCourse(course.id)
+  const owned = hasCourse(course.id);
 
   const handleBuy = () => {
     if (!isAuthenticated) {
-      navigate("/login", { state: { from: `/courses/${course.id}` } })
-      return
+      navigate("/login", { state: { from: `/courses/${course.id}` } });
+      return;
     }
-    setBuyError("")
-    setPayOpen(true)
-  }
+    setBuyError("");
+    setPayOpen(true);
+  };
 
   async function handleSuccess() {
-    setBuying(true)
-    setBuyError("")
-    const res = await purchaseCourse(course)
-    setBuying(false)
-    if (res.success) {
-      setPayOpen(false)
-      navigate(`/watch/${course.id}`)
-    } else {
-      setBuyError(res.message || "Purchase failed")
+    setBuying(true);
+    setBuyError("");
+
+    try {
+      // Backend has already verified payment and granted course access.
+      await refreshPurchased();
+
+      setPayOpen(false);
+      navigate(`/watch/${course.id}`);
+    } catch (err) {
+      setBuyError(
+        "Payment may be successful, but course access could not be refreshed. Please reload the page.",
+      );
+    } finally {
+      setBuying(false);
     }
   }
 
@@ -173,5 +179,5 @@ export default function CourseDetail() {
         />
       ) : null}
     </div>
-  )
+  );
 }

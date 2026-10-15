@@ -182,7 +182,7 @@ export default function Footer() {
 
               <span>
                 <span className="block text-2xl font-extrabold tracking-tight">
-                  SkyBirds
+                  Sky Birds
                 </span>
                 <span className="text-xs font-medium tracking-[0.2em] text-emerald-300">
                   SOLUTION

@@ -15,11 +15,11 @@ export default function CourseCard({ course }) {
       className="overflow-hidden rounded-2xl border  border-gray-200 bg-white"
     >
       {/* Thumbnail */}
-      <div className="relative h-44 overflow-hidden bg-mint p-4 bg-white">
+      <div className="relative h-60 overflow-hidden bg-mint p-4 bg-white">
         <motion.img
           src={course.thumbnail}
           alt=""
-          className="h-40 w-full object-cover rounded-md"
+          className="h-full w-full object-cover rounded-md"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.45 }}
         />
