@@ -21,8 +21,15 @@ function Icon({ name, size = 20, className = "" }) {
     ),
     whatsapp: (
       <>
-        <path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7a8.5 8.5 0 1 1 16.3-3.8Z" />
-        <path d="M8.5 7.8c-.3-.7-.6-.7-.9-.7h-.7c-.3 0-.7.1-1 .5-.3.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.8 5.9 5.1 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4l-2.1-1c-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.4-.2-1.5-.6-2.8-1.8-1-.9-1.7-2-1.9-2.4-.2-.4 0-.5.2-.7l.5-.6.4-.6c.1-.2 0-.4 0-.6Z" />
+        <path
+          d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5Z"
+          fill="none"
+        />
+        <path
+          d="M8.1 7.3c-.3-.6-.6-.6-.9-.6h-.7c-.3 0-.7.2-1 .5-.4.4-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.8 5.9 5.1 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4l-2.1-1c-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.4-.2-1.5-.6-2.8-1.8-1-.9-1.7-2-1.9-2.4-.2-.4 0-.5.2-.7l.5-.6.4-.6c.1-.2 0-.4 0-.6Z"
+          fill="currentColor"
+          stroke="none"
+        />
       </>
     ),
     phone: (
@@ -38,6 +45,23 @@ function Icon({ name, size = 20, className = "" }) {
       <>
         <path d="M7 17 17 7" />
         <path d="M7 7h10v10" />
+      </>
+    ),
+    telegram: (
+      <>
+        <path
+          d="M22 3 2.8 10.4c-1.3.5-1.3 1.2-.2 1.5l4.9 1.5 1.9 6c.2.7.1 1 .9 1 .6 0 .9-.3 1.2-.6l2.8-2.7 5.8 4.3c1.1.6 1.9.3 2.2-1L25 4.5C25.4 3 24.4 2.3 22 3Z"
+          transform="translate(-1.5 -1.5) scale(.96)"
+          fill="currentColor"
+          stroke="none"
+        />
+        <path
+          d="m7.5 13.2 10.9-6.8-8.4 8.1-.3 3.1"
+          fill="none"
+          stroke="white"
+          strokeWidth="1.2"
+          strokeLinejoin="round"
+        />
       </>
     ),
     link: (
@@ -109,13 +133,25 @@ export default function Footer() {
     ...configuredSocialLinks.map((item, index) => ({
       name: item.name || item.platform || `Social link ${index + 1}`,
       href: item.url,
-      icon: ["instagram", "facebook", "whatsapp"].includes(String(item.platform || item.name || "").toLowerCase())
+      icon: ["instagram", "facebook", "whatsapp", "telegram"].includes(
+        String(item.platform || item.name || "").toLowerCase(),
+      )
         ? String(item.platform || item.name).toLowerCase()
         : "link",
       color: item.color || "hover:bg-emerald-600",
     })),
-    ...(!configuredSocialLinks.some((item) => String(item.platform || item.name || "").toLowerCase() === "whatsapp") && whatsapp
-      ? [{ name: "WhatsApp", href: whatsappUrl, icon: "whatsapp", color: "hover:bg-green-600" }]
+    ...(!configuredSocialLinks.some(
+      (item) =>
+        String(item.platform || item.name || "").toLowerCase() === "whatsapp",
+    ) && whatsapp
+      ? [
+          {
+            name: "WhatsApp",
+            href: whatsappUrl,
+            icon: "whatsapp",
+            color: "hover:bg-green-600",
+          },
+        ]
       : []),
   ];
 
@@ -136,7 +172,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="mb-5 inline-flex items-center gap-3">
-              <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 shadow-lg">
+              <span className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-xl p-1.5 shadow-lg">
                 <img
                   src="/assets/logo1.png"
                   alt="SkyBirds Logo"
@@ -149,7 +185,7 @@ export default function Footer() {
                   SkyBirds
                 </span>
                 <span className="text-xs font-medium tracking-[0.2em] text-emerald-300">
-                  ACADEMY
+                  SOLUTION
                 </span>
               </span>
             </Link>
@@ -293,7 +329,14 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col gap-4 border-t border-white/10 py-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <p className="text-xs leading-6 text-white/45">
-            © {new Date().getFullYear()} SkyBirds Academy. All rights reserved.
+            © {new Date().getFullYear()} SkyBirds Academy. All rights reserved.{" "}
+            <a
+              href="https://marketbloomss.com/"
+              target="blank"
+              className="underline"
+            >
+              Design by Market Bloomss
+            </a>
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-white/45 sm:justify-end">

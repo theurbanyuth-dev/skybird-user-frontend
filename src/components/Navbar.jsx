@@ -25,7 +25,7 @@ export default function Navbar() {
     `rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
       isActive
         ? "bg-white/75 text-forest shadow-sm ring-1 ring-white/80"
-        : "text-ink/80 hover:bg-white/50 hover:text-forest"
+        : "text-ink/80 hover:bg-white/90 hover:text-forest text-white"
     }`;
 
   return (
@@ -37,7 +37,7 @@ export default function Navbar() {
             mx-auto max-w-6xl
             rounded-full
             border border-white/60
-            bg-white/65
+            bg-black/90
             shadow-lg shadow-slate-900/5
             backdrop-blur-2xl
             backdrop-saturate-150
@@ -50,13 +50,14 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className="flex shrink-0 items-center gap-2.5"
             >
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-black text-sm font-extrabold text-white shadow-sm">
+              <span className="grid h-9 w-9 place-items-center rounded-xl  text-sm font-extrabold text-white -mt-2">
                 <img src="/assets/logo1.png" alt="Sky Birds" />
               </span>
-
-              <span className="text-base font-bold tracking-tight text-ink">
-                Sky Birds
-              </span>
+ 
+                <span className="text-base font-bold tracking-tight text-white">
+                  Sky Birds
+                </span>
+                
             </Link>
 
             {/* Desktop Navigation */}

@@ -19,7 +19,7 @@ export default function CourseCard({ course }) {
         <motion.img
           src={course.thumbnail}
           alt=""
-          className="h-full w-full object-cover rounded-md"
+          className="h-40 w-full object-cover rounded-md"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.45 }}
         />

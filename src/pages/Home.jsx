@@ -216,6 +216,7 @@ export default function Home() {
   const [featured, setFeatured] = useState([]);
 
   const [loading, setLoading] = useState(true);
+  const [showPreloader, setShowPreloader] = useState(true);
 
   const [openFaq, setOpenFaq] = useState(0);
   const [siteContent, setSiteContent] = useState(null);
@@ -253,6 +254,13 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+    // Keep the branded intro visible briefly, then move the logo toward the navbar.
+    const timer = window.setTimeout(() => setShowPreloader(false), 1000);
+    return () => window.clearTimeout(timer);
+  }, [loading]);
+
   const home = siteContent?.home || {};
   const hero = home.hero || {};
   const sections =
@@ -262,8 +270,60 @@ export default function Home() {
   const dynamicFaqs =
     Array.isArray(home.faqs) && home.faqs.length ? home.faqs : faqs;
 
+  const logoTargetX = typeof window !== "undefined"
+    ? Math.max(16, (window.innerWidth - 1152) / 2 + 20) + 18 - window.innerWidth / 2
+    : -140;
+  const logoTargetY = typeof window !== "undefined" ? 42 - window.innerHeight / 2 : -300;
+
   return (
     <div className="overflow-hidden bg-white text-ink">
+      {showPreloader && (
+        <motion.div
+          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8fbf8] via-white to-[#e8f3e7]"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: loading ? 1 : 0 }}
+          transition={{ duration: 0.65, delay: loading ? 0 : 0.95, ease: "easeInOut" }}
+          style={{ pointerEvents: loading ? "auto" : "none" }}
+          aria-label="Loading Sky Birds"
+          role="status"
+        >
+          <div className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[#d9ecd6]/70 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-28 -right-20 h-96 w-96 rounded-full bg-[#dce9f7]/70 blur-3xl" />
+          <motion.div
+            className="relative flex flex-col items-center gap-4"
+            initial={{ opacity: 0, scale: 0.78, y: 12 }}
+            animate={loading
+              ? { opacity: 1, scale: 1, x: 0, y: 0 }
+              : { opacity: 1, scale: 0.72, x: logoTargetX, y: logoTargetY }
+            }
+            transition={{ duration: loading ? 0.65 : 0.95, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div
+              className="grid h-20 w-20 place-items-center rounded-3xl border border-white/80 bg-black/90 p-3 shadow-xl shadow-forest/10 sm:h-24 sm:w-24"
+              animate={{ rotate: loading ? [0, -4, 4, 0] : 0 }}
+              transition={{ duration: 1.6, repeat: loading ? Infinity : 0, ease: "easeInOut" }}
+            >
+              <img src="/assets/logo1.png" alt="Sky Birds" className="h-full w-full object-contain" />
+            </motion.div>
+            <motion.div
+              className="text-center"
+              animate={{ opacity: loading ? 1 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="text-2xl font-extrabold tracking-tight text-forest">Sky Birds</p>
+              <p className="mt-1 text-xs font-medium tracking-[0.18em] text-slate-500">YOUR LEARNING JOURNEY</p>
+              <div className="mx-auto mt-5 h-1 w-36 overflow-hidden rounded-full bg-forest/10">
+                <motion.div
+                  className="h-full rounded-full bg-gradient-to-r from-leaf to-forest"
+                  animate={{ x: ["-100%", "0%", "100%"] }}
+                  transition={{ duration: 1.25, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ width: "55%" }}
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      )}
       {/* <Hero /> */}
 
       <section className="relative isolate overflow-hidden bg-[#f4f8f4]">
@@ -396,7 +456,7 @@ export default function Home() {
               className="relative overflow-hidden rounded-[1.75rem] border-[6px] border-white bg-white shadow-2xl"
             >
               <img
-                src={hero.imageUrl || "/assets/img1.png"}
+                src={hero.imageUrl || "/assets/owner.jpeg"}
                 alt="Small business owner managing an online business"
                 className="aspect-[1/0.95] w-full object-cover"
                 loading="lazy"
