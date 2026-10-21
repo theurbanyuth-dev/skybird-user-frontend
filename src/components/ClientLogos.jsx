@@ -92,8 +92,8 @@ function ClientCard({ client, index }) {
     <div
       className={`
         group relative
-        flex h-[105px]
-        w-[125px]
+        flex h-[70px] w-[90px] md:h-[105px]
+        md:w-[125px]
         shrink-0
         flex-col
         items-center
@@ -166,46 +166,49 @@ function ClientCard({ client, index }) {
   );
 }
 
-function ClientRow({ clients: rowClients, rowIndex }) {
-  // Duplicate row for seamless animation
-  const duplicated = [...rowClients, ...rowClients];
 
-  const reverse = rowIndex % 2 !== 0;
+ 
+
+   
+function ClientRow({ clients: rowClients, rowIndex }) {
+  const isReverse = rowIndex % 2 === 1;
 
   return (
     <div
-      className="
-        relative
-        overflow-hidden
-        py-2
-        [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]
-      "
+      className="relative w-full overflow-hidden py-2"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent, black 5%, black 95%, transparent)",
+      }}
     >
-      <motion.div
-        className="flex w-max gap-4"
-        initial={{
-          x: reverse ? "-50%" : "0%",
-        }}
-        animate={{
-          x: reverse ? "0%" : "-50%",
-        }}
-        transition={{
-          duration: 28,
-          ease: "linear",
-          repeat: Infinity,
-        }}
+      <div
+        className={`client-marquee-track ${
+          isReverse ? "client-marquee-reverse" : ""
+        }`}
       >
-        {duplicated.map((client, index) => (
-          <ClientCard
-            key={`${client.name}-${rowIndex}-${index}`}
-            client={client}
-            index={index + rowIndex}
-          />
+        {[0, 1].map((group) => (
+          <div
+            key={group}
+            className="client-marquee-group"
+            aria-hidden={group === 1}
+          >
+            {rowClients.map((client, index) => (
+              <ClientCard
+                key={`${client.name}-${rowIndex}-${group}`}
+                client={client}
+                index={index + rowIndex}
+              />
+            ))}
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
-}
+} 
+
+
+
+
 
 export default function ClientLogos() {
   return (

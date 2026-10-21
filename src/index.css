@@ -93,3 +93,48 @@ body {
     animation: none;
   }
 }
+
+
+
+
+
+
+ 
+.client-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: marquee-left 30s linear infinite;
+  will-change: transform;
+}
+
+.client-marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+/* Rows 1 and 3: move left */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Rows 2 and 4: move right */
+.client-marquee-track.client-marquee-reverse {
+  animation-name: marquee-right;
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+} 
